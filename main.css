@@ -37,3 +37,12 @@ body{
   text-indent: : 10px;
 
 }
+
+img.sticky {
+  top: 0px;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 40%;
+  display: inline-grid;
+
+}

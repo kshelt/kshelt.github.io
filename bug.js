@@ -35,8 +35,8 @@ var BugDispatch = {
     options: {
         minDelay: 500,
         maxDelay: 10000,
-        minBugs: 2,
-        maxBugs: 20,
+        minBugs: 10,
+        maxBugs: 30,
         minSpeed: 5,
         maxSpeed: 10,
         maxLargeTurnDeg: 150,
@@ -281,7 +281,7 @@ var BugDispatch = {
             bug.die();
         } else if (mode === 'multiply') {
             if (!this.multiplyDelay && this.bugs.length < this.options.maxBugs) {
-                // spawn another: 
+                // spawn another:
                 // create new bug:
                 var b = SpawnBug(),
                     options = JSON.parse(JSON.stringify(this.options)),
@@ -349,8 +349,8 @@ var SpiderController = function() {
         maxDelay: 3000,
         minSpeed: 6,
         maxSpeed: 13,
-        minBugs: 3,
-        maxBugs: 10
+        minBugs: 6,
+        maxBugs: 20
     };
     this.options = mergeOptions(this.options, spiderOptions);
     this.initialize.apply(this, arguments);
@@ -484,7 +484,7 @@ var Bug = {
 
         if (delta < 40) return; // don't animate too frequently
 
-        // sometimes if the browser doesnt have focus, or the delta in request animation 
+        // sometimes if the browser doesnt have focus, or the delta in request animation
         // frame can be very large. We set a sensible max so that the bugs dont spaz out.
 
         if (delta > 200) delta = 200;
@@ -716,7 +716,7 @@ var Bug = {
         if (!this.bug) {
             this.makeBug();
         }
-        
+
         if(!this.bug) return;
 
         this.stop();
@@ -744,7 +744,7 @@ var Bug = {
             style.top = windowY + (2 * this.options.bugHeight);
             style.left = Math.random() * windowX;
         } else {
-            // left: 
+            // left:
             style.top = Math.random() * windowY;
             style.left = (-3 * this.options.bugWidth);
         }
@@ -767,7 +767,7 @@ var Bug = {
         if (!this.bug) {
             this.makeBug();
         }
-        
+
         if(!this.bug) return;
 
         this.stop();
@@ -795,7 +795,7 @@ var Bug = {
             style.top = windowY + (0.3 * this.options.bugHeight);
             style.left = Math.random() * windowX;
         } else {
-            // left: 
+            // left:
             style.top = Math.random() * windowY;
             style.left = (-1.3 * this.options.bugWidth);
         }
@@ -835,7 +835,7 @@ var Bug = {
             style.top = windowY + 200;
             style.left = Math.random() * windowX;
         } else {
-            // left: 
+            // left:
             style.top = Math.random() * windowY;
             style.left = -200;
         }
@@ -861,7 +861,7 @@ var Bug = {
             rotationRate = this.random(0, 20, true),
             startTime = Date.now(),
             that = this;
-        
+
         this.bug.classList.add('bug-dead');
 
         this.dropTimer = requestAnimFrame(function(t) {
