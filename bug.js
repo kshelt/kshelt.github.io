@@ -35,8 +35,8 @@ var BugDispatch = {
     options: {
         minDelay: 500,
         maxDelay: 10000,
-        minBugs: 10,
-        maxBugs: 30,
+        minBugs: 20,
+        maxBugs: 50,
         minSpeed: 5,
         maxSpeed: 10,
         maxLargeTurnDeg: 150,
@@ -349,8 +349,8 @@ var SpiderController = function() {
         maxDelay: 3000,
         minSpeed: 6,
         maxSpeed: 13,
-        minBugs: 6,
-        maxBugs: 20
+        minBugs: 20,
+        maxBugs: 50
     };
     this.options = mergeOptions(this.options, spiderOptions);
     this.initialize.apply(this, arguments);
